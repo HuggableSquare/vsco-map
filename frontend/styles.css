@@ -1,0 +1,72 @@
+@import '../node_modules/leaflet/dist/leaflet.css';
+
+body {
+	margin: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: calc(100vh - 4rem);
+	font-family: Arial;
+}
+
+header {
+	margin-top: 3rem;
+	margin-bottom: 5rem;
+	width: 100%;
+	max-width: 35rem;
+}
+
+input {
+	width: 100%;
+	height: auto;
+	padding-left: 0;
+	padding-bottom: .75rem;
+	border-width: 0 0 .0625rem;
+	border-style: solid;
+	border-color: #ddd;
+	border-radius: 0;
+	outline: none;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 39rem) {
+	header {
+		margin-top: 0rem;
+		margin-bottom: 2rem;
+	}
+}
+
+.actions > span {
+	color: #888;
+	cursor: pointer;
+	font-size: 0.875rem;
+	margin-right: 1rem;
+}
+
+.actions > span:hover {
+	color: black;
+}
+
+#map {
+	width: 100%;
+	flex: 1;
+	min-height: 25rem;
+}
+
+.loading {
+	visibility: hidden;
+	animation: spin .7s cubic-bezier(.22,.61,.36,1) infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	20% {
+		transform: rotate(110deg);
+	}
+	100% {
+		transform: rotate(1turn);
+	}
+}
