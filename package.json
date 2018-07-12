@@ -2,6 +2,7 @@
   "name": "vsco-map",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "https://github.com/HuggableSquare/vsco-map.git",
   "license": "MIT",
   "scripts": {
     "start": "parcel build frontend/index.html && env APP_ENV=production ruby server.rb"
