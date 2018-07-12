@@ -52,8 +52,8 @@ function loadUser(username) {
 			data.forEach((image) => {
 				if (image.has_location && image.location_coords) {
 					console.log('has location')
+					// for some reason location coordinates are returned as [long, lat]
 					leaflet.marker(image.location_coords.reverse(), { icon })
-					//leaflet.marker(image.location_coords.reverse())
 						.addTo(group)
 						//.bindPopup(`Date Taken: ${new Date(image.capture_date)}`);
 						.bindPopup(`
