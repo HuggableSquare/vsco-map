@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>VSCO Map</title>
+		<meta charset='utf-8'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="favicon.ico">
 	</head>
@@ -14,9 +15,32 @@
 				<svg class="loading" width="16" height="16" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="height: auto;">
 					<circle cx="50" cy="50" r="43" stroke-dasharray="213.62830044410595 53.40707511102647" stroke="#888" fill="none" stroke-width="12"></circle>
 				</svg>
+				<span class="wat">?</span>
 			</div>
 		</header>
+
 		<main id="map"></main>
+
+		<div class="modal">
+			<div class="inner">
+				<span class="close">&times;</span>
+				<h2>What is this? 🤔</h2>
+				<p>Enter a VSCO username, and this site will map that user's images.</p>
+				<h2>Where is the data coming from? 📊</h2>
+				<p>VSCO stores location coordinates in their backend, I'm guessing they get it from <a href="https://en.wikipedia.org/wiki/Exif">EXIF data</a>.</p>
+				<h2>This is kind of creepy. 😱</h2>
+				<p>Agreed.</p>
+				<h2>Who are you and why did you build this? 👷</h2>
+				<p>
+					Hi, I'm Nick, aka <a href="https://pogonip.pw/">HuggableSquare</a>. 👋<br />
+					I was already familiar with VSCO's api from a previous project (<a href="https://github.com/HuggableSquare/vsco-dl">vsco-dl</a>), so I knew they stored location coordinates.<br />
+					Talking with some friends one day I figured I could probably map them pretty easily. 🎉
+				</p>
+				<h2>Can I see the source code for the site? 👨‍💻</h2>
+				<p>Since you asked so nicely: <a href="https://github.com/HuggableSquare/vsco-map">Sure.</a>
+			</div>
+		</div>
+
 		<script src="index.js"></script>
 	</body>
 </html>

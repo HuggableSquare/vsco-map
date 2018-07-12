@@ -1,4 +1,5 @@
 import leaflet from 'leaflet';
+import Modal from './modal.js';
 
 // have to import these before the css because of a parcel bug
 // https://github.com/parcel-bundler/parcel/issues/879#issuecomment-403263287
@@ -23,6 +24,8 @@ function checkStatus(response) {
 function setLoading(huh) {
 	document.querySelector('.loading').style.visibility = huh ? 'visible' : 'hidden';
 }
+
+const modal = new Modal(document.querySelector('.modal'));
 
 const osm = leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -77,11 +80,17 @@ input.onkeyup = function(event) {
 		username ? loadUser(username) : group.clearLayers();
 	}
 };
+
 document.querySelector('.actions > .search').onclick = function() {
 	const username = input.value;
 	username && loadUser(username);
 };
+
 document.querySelector('.actions > .reset').onclick = function() {
 	group.clearLayers();
 	input.value = '';
+};
+
+document.querySelector('.actions > .wat').onclick = function() {
+	modal.open();
 };

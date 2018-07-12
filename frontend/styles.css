@@ -1,4 +1,5 @@
 @import '../node_modules/leaflet/dist/leaflet.css';
+@import './modal.css';
 
 body {
 	margin: 2rem;
@@ -46,6 +47,11 @@ input {
 
 .actions > span:hover {
 	color: black;
+}
+
+.actions > .wat {
+	float: right;
+	margin-right: 0rem;
 }
 
 #map {
