@@ -15,7 +15,7 @@ get '/users/:user' do
 		puts params['user']
 		user = params['user']
 		initial = open "https://vsco.co/content/Static/userinfo",
-		  'Cookie' => "vs_anonymous_id=#{SecureRandom.uuid}",
+			'Cookie' => "vs_anonymous_id=#{SecureRandom.uuid}",
 			'Referer' => "https://vsco.co/#{user}/images/1"
 		vs = JSON.parse(initial.read[/{.+}/])['tkn']
 
