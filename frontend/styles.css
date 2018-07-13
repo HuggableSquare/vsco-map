@@ -10,6 +10,15 @@ body {
 	font-family: Arial;
 }
 
+a {
+	text-decoration: none;
+	color: #888;
+}
+
+a:hover {
+	color: #000;
+}
+
 header {
 	margin-top: 3rem;
 	margin-bottom: 5rem;
