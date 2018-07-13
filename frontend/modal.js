@@ -6,7 +6,6 @@ export default class Modal {
 
 	_setupEventListeners() {
 		document.onkeyup = (e) => {
-			console.log(e.key)
 			if (this.visible && e.key === 'Escape') {
 				this.close();
 			}
