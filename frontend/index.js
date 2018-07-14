@@ -48,15 +48,19 @@ function loadUser(username) {
 	setLoading(true);
 	group.clearLayers();
 
+	const coords = [];
+
 	fetch(`users/${username}`)
 		.then(checkStatus)
 		.then((data) => data.json())
 		.then((data) => {
 			data.forEach((image) => {
 				if (image.has_location && image.location_coords) {
-					console.log('has location')
 					// for some reason location coordinates are returned as [long, lat]
-					leaflet.marker(image.location_coords.reverse(), { icon })
+					image.location_coords.reverse();
+					console.log('has location')
+					coords.push(image.location_coords);
+					leaflet.marker(image.location_coords, { icon })
 						.addTo(group)
 						//.bindPopup(`Date Taken: ${new Date(image.capture_date)}`);
 						.bindPopup(`
@@ -66,6 +70,7 @@ function loadUser(username) {
 				}
 			});
 			group.addTo(map);
+			coords.length && map.fitBounds(coords);
 			setLoading(false);
 		})
 		.catch((e) => {
@@ -73,11 +78,16 @@ function loadUser(username) {
 		});
 }
 
+function resetMap() {
+	group.clearLayers();
+	map.setView([37.8, -96], 4);
+}
+
 const input = document.querySelector('input');
 input.onkeyup = function(event) {
 	if (event.key === 'Enter') {
 		const username = event.target.value;
-		username ? loadUser(username) : group.clearLayers();
+		username ? loadUser(username) : resetMap();
 	}
 };
 
@@ -87,7 +97,7 @@ document.querySelector('.actions > .search').onclick = function() {
 };
 
 document.querySelector('.actions > .reset').onclick = function() {
-	group.clearLayers();
+	resetMap();
 	input.value = '';
 };
 
