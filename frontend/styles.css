@@ -69,6 +69,14 @@ input {
 	min-height: 25rem;
 }
 
+.leaflet-popup-content-wrapper {
+	border-radius: 0rem;
+}
+
+.leaflet-popup-content {
+	margin: 1rem;
+}
+
 .loading {
 	visibility: hidden;
 	animation: spin .7s cubic-bezier(.22,.61,.36,1) infinite;

@@ -66,7 +66,7 @@ function loadUser(username) {
 						.bindPopup(`
 							<a href="${image.permalink}"><img width="150" src="//${image.responsive_url}?w=150" /></a><br />
 							<span style="word-wrap: break-word">Date Taken: ${new Date(image.capture_date)}</span>
-						`);
+						`, { closeButton: false });
 				}
 			});
 			group.addTo(map);
