@@ -62,10 +62,10 @@ function loadUser(username) {
 					coords.push(image.location_coords);
 					leaflet.marker(image.location_coords, { icon })
 						.addTo(group)
-						//.bindPopup(`Date Taken: ${new Date(image.capture_date)}`);
 						.bindPopup(`
-							<a href="${image.permalink}"><img width="150" src="//${image.responsive_url}?w=150" /></a><br />
-							<span style="word-wrap: break-word">Date Taken: ${new Date(image.capture_date)}</span>
+							<a href="${image.permalink}"><img width="200" src="//${image.responsive_url}?w=200" /></a>
+							<span>${image.description}</span>
+							<span>🕰️ ${new Date(image.capture_date).toLocaleString()}</span>
 						`, { closeButton: false });
 				}
 			});
