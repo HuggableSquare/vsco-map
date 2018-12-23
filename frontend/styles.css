@@ -19,6 +19,31 @@ a:hover {
 	color: #000;
 }
 
+h2 {
+	margin-bottom: 0rem;
+}
+
+p {
+	margin-top: 0.25rem;
+}
+
+noscript {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: white;
+	display: flex;
+	align-items: center;
+}
+
+noscript .message {
+	max-width: 35rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
 header {
 	margin-top: 3rem;
 	margin-bottom: 5rem;
