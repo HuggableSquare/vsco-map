@@ -36,6 +36,8 @@ noscript {
 	background: white;
 	display: flex;
 	align-items: center;
+	padding: 1em;
+	box-sizing: border-box;
 }
 
 noscript .message {
