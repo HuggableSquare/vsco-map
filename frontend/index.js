@@ -8,21 +8,33 @@ import markerIcon2x from '../node_modules/leaflet/dist/images/marker-icon-2x.png
 import markerShadow from '../node_modules/leaflet/dist/images/marker-shadow.png';
 import './styles.css';
 
+const loading = document.querySelector('.loading');
+const error = document.querySelector('.error');
+
 console.log(markerIcon, markerIcon2x, markerShadow)
 console.log(leaflet)
 
 function checkStatus(response) {
-	if (response.status >= 200 && response.status < 300) {
+	if (response.ok) {
 		return response;
 	} else {
-		const error = new Error(response.statusText);
-		error.response = response;
-		throw error;
+		return response.text()
+			.then((text) => {
+				const error = new Error(text || response.statusText);
+				error.response = response;
+				throw error;
+			});
 	}
 }
 
 function setLoading(huh) {
-	document.querySelector('.loading').style.visibility = huh ? 'visible' : 'hidden';
+	loading.style.display = huh ? 'inline' : 'none';
+}
+
+function setError(message) {
+  setLoading(false);
+  error.innerText = message ? `Uh oh: ${message}. 😳` : null;
+  error.style.visibility = message ? 'visible' : 'hidden';
 }
 
 const modal = new Modal(document.querySelector('.modal'));
@@ -45,6 +57,7 @@ const icon = new leaflet.Icon({
 });
 
 function loadUser(username) {
+	setError(null);
 	setLoading(true);
 	group.clearLayers();
 
@@ -74,6 +87,7 @@ function loadUser(username) {
 			setLoading(false);
 		})
 		.catch((e) => {
+			setError(e.message || e);
 			console.log('uh oh', e);
 		});
 }

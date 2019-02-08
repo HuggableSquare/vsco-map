@@ -72,20 +72,25 @@ input {
 	}
 }
 
-.actions > span {
+.actions > .action {
 	color: #888;
 	cursor: pointer;
 	font-size: 0.875rem;
 	margin-right: 1rem;
 }
 
-.actions > span:hover {
+.actions > .action:hover {
 	color: black;
 }
 
 .actions > .wat {
 	float: right;
 	margin-right: 0rem;
+}
+
+.actions > .error {
+	color: red;
+	visbility: hidden;
 }
 
 #map {
@@ -106,7 +111,7 @@ input {
 }
 
 .loading {
-	visibility: hidden;
+	display: none;
 	animation: spin .7s cubic-bezier(.22,.61,.36,1) infinite;
 }
 
