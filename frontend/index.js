@@ -42,7 +42,9 @@ const modal = new Modal(document.querySelector('.modal'));
 const osm = leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
-const map = leaflet.map('map').setView([37.8, -96], 4).addLayer(osm);
+const map = leaflet.map('map').addLayer(osm);
+resetMap();
+
 const group = new leaflet.LayerGroup();
 // can't use default because parcel adds hash to these filenames
 const icon = new leaflet.Icon({
@@ -93,8 +95,11 @@ function loadUser(username) {
 }
 
 function resetMap() {
-	group.clearLayers();
-	map.setView([37.8, -96], 4);
+	const breakpoints = [425, 1440, Infinity];
+	const zoom = breakpoints.findIndex((b) => window.innerWidth <= b) + 2;
+
+	group && group.clearLayers();
+	map.setView([30, -40], zoom);
 }
 
 const input = document.querySelector('input');
