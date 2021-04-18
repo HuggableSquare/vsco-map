@@ -5,7 +5,8 @@
   "repository": "https://github.com/HuggableSquare/vsco-map.git",
   "license": "MIT",
   "scripts": {
-    "start": "parcel build frontend/index.html && env APP_ENV=production ruby server.rb"
+    "start": "parcel build frontend/index.html && env APP_ENV=production ruby server.rb",
+    "build": "parcel build frontend/index.html --public-url './'"
   },
   "dependencies": {
     "leaflet": "^1.5.1"

@@ -8,6 +8,14 @@ lightly = Lightly.new life: 86400
 
 set :public_folder, File.dirname(__FILE__) + '/dist'
 
+get '/' do
+	send_file File.join(settings.public_folder, 'index.html')
+end
+
+get '/ping' do
+	'pong'
+end
+
 get '/users/:user' do
 	content_type :json
 
