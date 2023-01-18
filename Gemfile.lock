@@ -5,7 +5,7 @@ GEM
     eventmachine (1.2.7)
     lightly (0.2.1)
     mustermann (1.0.3)
-    rack (2.2.3)
+    rack (2.2.6.2)
     rack-protection (2.0.5)
       rack
     sinatra (2.0.5)
