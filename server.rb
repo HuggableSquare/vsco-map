@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'json'
 require 'open-uri'
-require 'securerandom'
 require 'lightly'
 
 lightly = Lightly.new life: 86400
@@ -38,10 +37,9 @@ get '/users/:user' do
 		end
 
 		page = 1
-		size = 1000
+		size = 99
 		images = []
 		loop do
-			puts page
 			response = JSON.load open "https://vsco.co/api/2.0/medias?site_id=#{site_id}&page=#{page}&size=#{size}", headers
 			images.concat response['media']
 			break if response['total'] <= page * size
